@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Business Learning Hub - Website pembelajaran E-Bisnis untuk mahasiswa">
+    <meta name="author" content="Ahmad Izzuddin Azzam">
+    <title>E-Business Learning Hub | Belajar E-Bisnis</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['Sora', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Plus Jakarta Sans & Sora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="font-sans antialiased text-primary-700 bg-white">
+    
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-transparent transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="font-display text-lg font-semibold text-primary-800 tracking-tight hover:text-accent-600 transition-colors">
+                    E-Business<span class="text-accent-500">Hub</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="nav-link text-primary-500 hover:text-primary-800 transition-colors">Beranda</a>
+                    <a href="#pengantar" class="nav-link text-primary-500 hover:text-primary-800 transition-colors">Pengantar</a>
+                    <a href="#model" class="nav-link text-primary-500 hover:text-primary-800 transition-colors">Model Bisnis</a>
+                    <a href="#komponen" class="nav-link text-primary-500 hover:text-primary-800 transition-colors">Komponen</a>
+                    <a href="#studi-kasus" class="nav-link text-primary-500 hover:text-primary-800 transition-colors">Studi Kasus</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-primary-600 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-all">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 text-sm overflow-hidden transition-all duration-300 max-h-0">
+                <div class="flex flex-col gap-1 pt-2 border-t border-primary-100">
+                    <a href="#home" class="mobile-nav-link px-3 py-2.5 rounded-lg text-primary-600 hover:text-primary-800 hover:bg-primary-50 transition-all">Beranda</a>
+                    <a href="#pengantar" class="mobile-nav-link px-3 py-2.5 rounded-lg text-primary-600 hover:text-primary-800 hover:bg-primary-50 transition-all">Pengantar</a>
+                    <a href="#model" class="mobile-nav-link px-3 py-2.5 rounded-lg text-primary-600 hover:text-primary-800 hover:bg-primary-50 transition-all">Model Bisnis</a>
+                    <a href="#komponen" class="mobile-nav-link px-3 py-2.5 rounded-lg text-primary-600 hover:text-primary-800 hover:bg-primary-50 transition-all">Komponen</a>
+                    <a href="#studi-kasus" class="mobile-nav-link px-3 py-2.5 rounded-lg text-primary-600 hover:text-primary-800 hover:bg-primary-50 transition-all">Studi Kasus</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div class="h-16"></div>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="relative min-h-[90vh] flex items-center overflow-hidden">
+        <!-- Subtle gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/40"></div>
+        
+        <!-- Geometric decorations -->
+        <div class="absolute top-20 right-[10%] w-80 h-80 bg-gradient-to-br from-blue-100/50 to-indigo-100/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-[5%] w-64 h-64 bg-gradient-to-tr from-slate-100/60 to-blue-50/40 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-20">
+            <div class="max-w-3xl">
+                <div class="animate-on-scroll opacity-0">
+                    <span class="inline-block px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-accent-600 bg-accent-50 rounded-full mb-6">
+                        Mata Kuliah E-Bisnis
+                    </span>
+                </div>
+                
+                <h1 class="animate-on-scroll font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 leading-[1.1] tracking-tight mb-6 opacity-0" style="animation-delay: 0.1s;">
+                    Memahami Transformasi<br>Bisnis di Era Digital
+                </h1>
+                
+                <p class="animate-on-scroll text-lg md:text-xl text-primary-500 leading-relaxed mb-10 max-w-2xl opacity-0" style="animation-delay: 0.2s;">
+                    Eksplorasi bagaimana teknologi digital mengubah lanskap bisnis modern — 
+                    dari model transaksi hingga strategi pemasaran yang data-driven.
+                </p>
+                
+                <div class="animate-on-scroll flex flex-wrap gap-4 opacity-0" style="animation-delay: 0.3s;">
+                    <a href="#pengantar" class="group inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white text-sm font-medium rounded-lg hover:bg-primary-900 transition-all shadow-lg shadow-primary-900/10">
+                        Mulai Belajar
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#studi-kasus" class="inline-flex items-center gap-2 px-6 py-3 text-primary-700 text-sm font-medium border border-primary-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all">
+                        Lihat Studi Kasus
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="animate-on-scroll grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-primary-100 max-w-xl opacity-0" style="animation-delay: 0.4s;">
+                <div>
+                    <p class="font-display text-2xl md:text-3xl font-bold text-primary-800">4</p>
+                    <p class="text-sm text-primary-500 mt-1">Model Bisnis</p>
+                </div>
+                <div>
+                    <p class="font-display text-2xl md:text-3xl font-bold text-primary-800">4</p>
+                    <p class="text-sm text-primary-500 mt-1">Studi Kasus</p>
+                </div>
+                <div>
+                    <p class="font-display text-2xl md:text-3xl font-bold text-primary-800">6</p>
+                    <p class="text-sm text-primary-500 mt-1">Referensi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PENGANTAR E-BUSINESS ==================== -->
+    <section id="pengantar" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="max-w-3xl mb-16">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Pengantar</span>
+                <h2 class="animate-on-scroll font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4 opacity-0">
+                    Apa Itu E-Business?
+                </h2>
+                <p class="animate-on-scroll text-primary-500 text-lg leading-relaxed opacity-0">
+                    Memahami konsep dasar dan ruang lingkup bisnis elektronik dalam konteks modern.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-12">
+                <!-- Main Content -->
+                <div class="lg:col-span-3 space-y-6">
+                    <div class="animate-on-scroll opacity-0">
+                        <p class="text-primary-600 leading-relaxed mb-4">
+                            <span class="font-semibold text-primary-800">Electronic Business (E-Business)</span> 
+                            merujuk pada penggunaan teknologi informasi dan komunikasi, khususnya internet, 
+                            untuk menjalankan seluruh proses bisnis perusahaan. Konsep ini pertama kali 
+                            dipopulerkan oleh IBM pada tahun 1997.
+                        </p>
+                        <p class="text-primary-600 leading-relaxed">
+                            Berbeda dengan persepsi umum, E-Business tidak terbatas pada aktivitas jual-beli online. 
+                            Cakupannya meliputi seluruh value chain perusahaan: dari manajemen hubungan pelanggan (CRM), 
+                            enterprise resource planning (ERP), supply chain management (SCM), hingga 
+                            knowledge management dan human resource information system.
+                        </p>
+                    </div>
+
+                    <!-- Comparison -->
+                    <div class="animate-on-scroll grid md:grid-cols-2 gap-4 mt-8 opacity-0">
+                        <div class="relative p-6 bg-primary-50 rounded-2xl border border-primary-100">
+                            <div class="absolute -top-3 left-6">
+                                <span class="px-3 py-1 bg-white text-xs font-semibold text-primary-600 border border-primary-200 rounded-full">E-Commerce</span>
+                            </div>
+                            <p class="text-sm text-primary-600 leading-relaxed mt-2">
+                                Subset dari E-Business yang fokus pada <strong>transaksi komersial</strong> — 
+                                pembelian dan penjualan produk atau jasa secara online. Contoh: marketplace, 
+                                online retail, dan payment gateway.
+                            </p>
+                        </div>
+                        <div class="relative p-6 bg-accent-50 rounded-2xl border border-accent-100">
+                            <div class="absolute -top-3 left-6">
+                                <span class="px-3 py-1 bg-white text-xs font-semibold text-accent-600 border border-accent-200 rounded-full">E-Business</span>
+                            </div>
+                            <p class="text-sm text-primary-600 leading-relaxed mt-2">
+                                Mencakup <strong>semua proses bisnis</strong> yang memanfaatkan teknologi digital: 
+                                komunikasi internal, kolaborasi tim, analisis data, otomatisasi workflow, 
+                                hingga pengambilan keputusan berbasis data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-2">
+                    <div class="animate-on-scroll sticky top-24 p-6 bg-gradient-to-br from-primary-800 to-primary-900 rounded-2xl text-white opacity-0">
+                        <h3 class="font-display font-semibold text-lg mb-4">Karakteristik Utama</h3>
+                        <ul class="space-y-4">
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center text-sm">1</div>
+                                <div>
+                                    <p class="font-medium text-white/90">Konektivitas Global</p>
+                                    <p class="text-sm text-white/60 mt-0.5">Beroperasi 24/7 lintas batas geografis</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center text-sm">2</div>
+                                <div>
+                                    <p class="font-medium text-white/90">Efisiensi Operasional</p>
+                                    <p class="text-sm text-white/60 mt-0.5">Otomatisasi mengurangi biaya dan waktu</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center text-sm">3</div>
+                                <div>
+                                    <p class="font-medium text-white/90">Data-Driven Decision</p>
+                                    <p class="text-sm text-white/60 mt-0.5">Keputusan berdasarkan analitik real-time</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center text-sm">4</div>
+                                <div>
+                                    <p class="font-medium text-white/90">Skalabilitas</p>
+                                    <p class="text-sm text-white/60 mt-0.5">Fleksibel menyesuaikan pertumbuhan bisnis</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MANFAAT E-BUSINESS ==================== -->
+    <section class="py-20 bg-primary-50/50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="animate-on-scroll font-display text-2xl md:text-3xl font-bold text-primary-900 mb-3 opacity-0">
+                    Mengapa E-Business Menjadi Esensial?
+                </h2>
+                <p class="animate-on-scroll text-primary-500 opacity-0">Keunggulan kompetitif di era digital economy</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="animate-on-scroll group p-6 bg-white rounded-2xl border border-primary-100 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/5 transition-all duration-300 opacity-0">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-primary-800 mb-2">Kecepatan Proses</h3>
+                    <p class="text-sm text-primary-500 leading-relaxed">Transaksi dan proses bisnis yang sebelumnya memakan waktu berhari-hari kini dapat diselesaikan dalam hitungan menit.</p>
+                </div>
+                
+                <div class="animate-on-scroll group p-6 bg-white rounded-2xl border border-primary-100 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/5 transition-all duration-300 opacity-0" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-primary-800 mb-2">Efisiensi Biaya</h3>
+                    <p class="text-sm text-primary-500 leading-relaxed">Pengurangan biaya operasional melalui otomatisasi, paperless operation, dan optimasi resource allocation.</p>
+                </div>
+                
+                <div class="animate-on-scroll group p-6 bg-white rounded-2xl border border-primary-100 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/5 transition-all duration-300 opacity-0" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-primary-800 mb-2">Jangkauan Global</h3>
+                    <p class="text-sm text-primary-500 leading-relaxed">Akses ke pasar internasional tanpa batasan geografis, memungkinkan ekspansi bisnis yang lebih luas.</p>
+                </div>
+                
+                <div class="animate-on-scroll group p-6 bg-white rounded-2xl border border-primary-100 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/5 transition-all duration-300 opacity-0" style="animation-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-primary-800 mb-2">Insight Berbasis Data</h3>
+                    <p class="text-sm text-primary-500 leading-relaxed">Pengambilan keputusan strategis didukung analitik real-time dan business intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MODEL E-BUSINESS ==================== -->
+    <section id="model" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Model Bisnis</span>
+                <h2 class="animate-on-scroll font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4 opacity-0">
+                    Klasifikasi Model E-Business
+                </h2>
+                <p class="animate-on-scroll text-primary-500 max-w-2xl mx-auto opacity-0">
+                    Berdasarkan pelaku yang terlibat dalam transaksi, E-Business dapat diklasifikasikan ke dalam beberapa model.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- B2B -->
+                <div class="animate-on-scroll group opacity-0">
+                    <div class="h-full p-8 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="inline-flex items-center justify-center w-14 h-14 bg-blue-600 text-white font-display font-bold text-lg rounded-xl">B2B</span>
+                            <span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Business to Business</span>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-primary-800 mb-3">Transaksi Antar Korporasi</h3>
+                        <p class="text-primary-500 text-sm leading-relaxed mb-4">
+                            Model di mana transaksi terjadi antara satu perusahaan dengan perusahaan lain. 
+                            Meliputi procurement, wholesale distribution, dan enterprise software services.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-slate-200 rounded-full text-slate-600">Alibaba.com</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-slate-200 rounded-full text-slate-600">SAP</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-slate-200 rounded-full text-slate-600">Ralali</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2C -->
+                <div class="animate-on-scroll group opacity-0" style="animation-delay: 0.1s;">
+                    <div class="h-full p-8 bg-gradient-to-br from-emerald-50 to-teal-50/50 rounded-2xl border border-emerald-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="inline-flex items-center justify-center w-14 h-14 bg-emerald-600 text-white font-display font-bold text-lg rounded-xl">B2C</span>
+                            <span class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Business to Consumer</span>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-primary-800 mb-3">Penjualan ke Konsumen Akhir</h3>
+                        <p class="text-primary-500 text-sm leading-relaxed mb-4">
+                            Model paling umum di mana bisnis menjual produk atau layanan langsung kepada 
+                            konsumen akhir melalui platform digital seperti website atau aplikasi mobile.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-emerald-200 rounded-full text-emerald-700">Tokopedia</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-emerald-200 rounded-full text-emerald-700">Blibli</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-emerald-200 rounded-full text-emerald-700">Netflix</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C2C -->
+                <div class="animate-on-scroll group opacity-0" style="animation-delay: 0.2s;">
+                    <div class="h-full p-8 bg-gradient-to-br from-violet-50 to-purple-50/50 rounded-2xl border border-violet-200 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="inline-flex items-center justify-center w-14 h-14 bg-violet-600 text-white font-display font-bold text-lg rounded-xl">C2C</span>
+                            <span class="text-xs font-medium text-violet-400 uppercase tracking-wider">Consumer to Consumer</span>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-primary-800 mb-3">Transaksi Antar Konsumen</h3>
+                        <p class="text-primary-500 text-sm leading-relaxed mb-4">
+                            Model di mana konsumen dapat menjual produk atau jasa kepada konsumen lain, 
+                            difasilitasi oleh platform marketplace atau classified ads.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-violet-200 rounded-full text-violet-700">OLX</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-violet-200 rounded-full text-violet-700">Carousell</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-violet-200 rounded-full text-violet-700">Kaskus FJB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C2B -->
+                <div class="animate-on-scroll group opacity-0" style="animation-delay: 0.3s;">
+                    <div class="h-full p-8 bg-gradient-to-br from-amber-50 to-orange-50/50 rounded-2xl border border-amber-200 hover:border-amber-300 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="inline-flex items-center justify-center w-14 h-14 bg-amber-500 text-white font-display font-bold text-lg rounded-xl">C2B</span>
+                            <span class="text-xs font-medium text-amber-400 uppercase tracking-wider">Consumer to Business</span>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-primary-800 mb-3">Penawaran dari Individu</h3>
+                        <p class="text-primary-500 text-sm leading-relaxed mb-4">
+                            Model di mana individu menawarkan produk, jasa, atau value kepada perusahaan. 
+                            Umum dalam gig economy, influencer marketing, dan crowdsourcing.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-amber-200 rounded-full text-amber-700">Fiverr</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-amber-200 rounded-full text-amber-700">Shutterstock</span>
+                            <span class="px-3 py-1 text-xs font-medium bg-white border border-amber-200 rounded-full text-amber-700">Sribulancer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KOMPONEN E-BUSINESS ==================== -->
+    <section id="komponen" class="py-24 bg-primary-50/50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Komponen</span>
+                <h2 class="animate-on-scroll font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4 opacity-0">
+                    Pilar Utama E-Business
+                </h2>
+                <p class="animate-on-scroll text-primary-500 max-w-2xl mx-auto opacity-0">
+                    Elemen-elemen fundamental yang mendukung operasional bisnis digital secara komprehensif.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Digital Payment -->
+                <div class="animate-on-scroll opacity-0">
+                    <div class="h-full bg-white rounded-2xl p-8 border border-primary-100 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-semibold text-primary-800 text-lg">Sistem Pembayaran Digital</h3>
+                                <p class="text-sm text-primary-400">Payment Gateway & E-Wallet</p>
+                            </div>
+                        </div>
+                        <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                            Infrastruktur pembayaran yang memungkinkan transaksi finansial secara elektronik. 
+                            Di Indonesia, adopsi pembayaran digital meningkat signifikan dengan kehadiran 
+                            QRIS yang menyatukan berbagai platform e-wallet.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">GoPay</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">OVO</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">DANA</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">QRIS</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Midtrans</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.1s;">
+                    <div class="h-full bg-white rounded-2xl p-8 border border-primary-100 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-semibold text-primary-800 text-lg">Digital Marketing</h3>
+                                <p class="text-sm text-primary-400">Pemasaran & Customer Acquisition</p>
+                            </div>
+                        </div>
+                        <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                            Strategi pemasaran yang memanfaatkan channel digital untuk menjangkau target audiens. 
+                            Memungkinkan targeting yang presisi, pengukuran ROI yang akurat, dan optimasi 
+                            kampanye secara real-time.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">SEO/SEM</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Social Media Ads</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Content Marketing</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Email Marketing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supply Chain -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.2s;">
+                    <div class="h-full bg-white rounded-2xl p-8 border border-primary-100 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-semibold text-primary-800 text-lg">Supply Chain Management</h3>
+                                <p class="text-sm text-primary-400">Logistik & Inventory Control</p>
+                            </div>
+                        </div>
+                        <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                            Sistem terintegrasi untuk mengelola aliran barang dari supplier hingga 
+                            konsumen akhir. Meliputi procurement, warehouse management, dan 
+                            last-mile delivery tracking.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">WMS</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Real-time Tracking</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">Inventory System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Compliance -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.3s;">
+                    <div class="h-full bg-white rounded-2xl p-8 border border-primary-100 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-semibold text-primary-800 text-lg">Keamanan & Kepatuhan</h3>
+                                <p class="text-sm text-primary-400">Security & Regulatory Compliance</p>
+                            </div>
+                        </div>
+                        <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                            Aspek krusial meliputi perlindungan data pribadi, keamanan transaksi, 
+                            dan kepatuhan terhadap regulasi. Di Indonesia diatur dalam UU PDP 
+                            (Perlindungan Data Pribadi) dan UU ITE.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">SSL/TLS</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">2FA</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">PCI DSS</span>
+                            <span class="px-3 py-1.5 text-xs bg-primary-50 border border-primary-100 rounded-lg text-primary-600">UU PDP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STUDI KASUS ==================== -->
+    <section id="studi-kasus" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Studi Kasus</span>
+                <h2 class="animate-on-scroll font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4 opacity-0">
+                    Implementasi E-Business di Indonesia
+                </h2>
+                <p class="animate-on-scroll text-primary-500 max-w-2xl mx-auto opacity-0">
+                    Analisis perusahaan-perusahaan yang berhasil mengimplementasikan strategi E-Business secara komprehensif.
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Tokopedia -->
+                <div class="animate-on-scroll opacity-0">
+                    <div class="group bg-white rounded-3xl border border-primary-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-500">
+                        <div class="grid md:grid-cols-4">
+                            <div class="md:col-span-1 bg-gradient-to-br from-emerald-500 to-green-600 p-8 flex flex-col justify-center">
+                                <span class="font-display text-4xl font-bold text-white mb-2">Tkpd</span>
+                                <span class="text-emerald-100 text-sm">Founded 2009</span>
+                            </div>
+                            <div class="md:col-span-3 p-8">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <h3 class="font-display text-xl font-semibold text-primary-800">Tokopedia</h3>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">B2C & C2C Marketplace</span>
+                                </div>
+                                <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                                    Didirikan oleh William Tanuwijaya dan Leontinus Alpha Edison, Tokopedia telah 
+                                    bertransformasi dari startup marketplace menjadi ekosistem digital komprehensif. 
+                                    Dengan valuasi mencapai USD 7.5 miliar sebelum merger dengan Gojek membentuk GoTo Group (2021), 
+                                    platform ini menghubungkan lebih dari 11 juta merchant dengan ratusan juta pengguna.
+                                </p>
+                                <div class="flex flex-wrap gap-6 text-sm">
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Model Bisnis</p>
+                                        <p class="font-medium text-primary-700">Marketplace + Fintech</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Key Innovation</p>
+                                        <p class="font-medium text-primary-700">TokoPoints, Mitra Tokopedia</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Revenue Stream</p>
+                                        <p class="font-medium text-primary-700">Commission, Ads, Fintech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gojek -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.1s;">
+                    <div class="group bg-white rounded-3xl border border-primary-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-500">
+                        <div class="grid md:grid-cols-4">
+                            <div class="md:col-span-1 bg-gradient-to-br from-teal-600 to-green-700 p-8 flex flex-col justify-center">
+                                <span class="font-display text-4xl font-bold text-white mb-2">Gjk</span>
+                                <span class="text-teal-100 text-sm">Founded 2010</span>
+                            </div>
+                            <div class="md:col-span-3 p-8">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <h3 class="font-display text-xl font-semibold text-primary-800">Gojek</h3>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-teal-100 text-teal-700 rounded-full">Super App</span>
+                                </div>
+                                <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                                    Berawal dari layanan call center ojek dengan 20 driver, Gojek yang didirikan 
+                                    Nadiem Makarim berkembang menjadi decacorn pertama Indonesia dengan valuasi 
+                                    USD 10 miliar (2019). Mempelopori konsep "super app" di Asia Tenggara dengan 
+                                    lebih dari 20 layanan terintegrasi dalam satu platform.
+                                </p>
+                                <div class="flex flex-wrap gap-6 text-sm">
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Model Bisnis</p>
+                                        <p class="font-medium text-primary-700">On-Demand Services</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Key Innovation</p>
+                                        <p class="font-medium text-primary-700">GoPay, Multi-vertical Integration</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Impact</p>
+                                        <p class="font-medium text-primary-700">2M+ Driver Partners</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopee -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.2s;">
+                    <div class="group bg-white rounded-3xl border border-primary-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-500">
+                        <div class="grid md:grid-cols-4">
+                            <div class="md:col-span-1 bg-gradient-to-br from-orange-500 to-red-500 p-8 flex flex-col justify-center">
+                                <span class="font-display text-4xl font-bold text-white mb-2">Shp</span>
+                                <span class="text-orange-100 text-sm">Entered ID 2015</span>
+                            </div>
+                            <div class="md:col-span-3 p-8">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <h3 class="font-display text-xl font-semibold text-primary-800">Shopee Indonesia</h3>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-orange-100 text-orange-700 rounded-full">Mobile-First E-Commerce</span>
+                                </div>
+                                <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                                    Anak perusahaan Sea Limited (Singapura) yang berhasil merebut pangsa pasar 
+                                    e-commerce Indonesia dengan strategi mobile-first dan aggressive marketing. 
+                                    Menurut data iPrice Q1 2023, Shopee memimpin dengan rata-rata 157 juta 
+                                    kunjungan bulanan di Indonesia.
+                                </p>
+                                <div class="flex flex-wrap gap-6 text-sm">
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Model Bisnis</p>
+                                        <p class="font-medium text-primary-700">C2C & B2C Marketplace</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Key Innovation</p>
+                                        <p class="font-medium text-primary-700">Shopee Live, ShopeePay</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Strategy</p>
+                                        <p class="font-medium text-primary-700">Gamification, Free Shipping</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traveloka -->
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.3s;">
+                    <div class="group bg-white rounded-3xl border border-primary-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-500">
+                        <div class="grid md:grid-cols-4">
+                            <div class="md:col-span-1 bg-gradient-to-br from-blue-600 to-indigo-700 p-8 flex flex-col justify-center">
+                                <span class="font-display text-4xl font-bold text-white mb-2">Tvlk</span>
+                                <span class="text-blue-100 text-sm">Founded 2012</span>
+                            </div>
+                            <div class="md:col-span-3 p-8">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <h3 class="font-display text-xl font-semibold text-primary-800">Traveloka</h3>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 rounded-full">OTA & Lifestyle</span>
+                                </div>
+                                <p class="text-primary-600 text-sm leading-relaxed mb-5">
+                                    Didirikan oleh Ferry Unardi, Derianto Kusuma, dan Albert Zhang (alumni Harvard & MIT), 
+                                    Traveloka menjadi OTA (Online Travel Agent) terbesar di Asia Tenggara. 
+                                    Platform ini berhasil mengintegrasikan B2B partnerships dengan ribuan maskapai 
+                                    dan hotel untuk memberikan layanan B2C yang seamless.
+                                </p>
+                                <div class="flex flex-wrap gap-6 text-sm">
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Model Bisnis</p>
+                                        <p class="font-medium text-primary-700">B2B2C, Commission-based</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Key Innovation</p>
+                                        <p class="font-medium text-primary-700">PayLater, Xperience</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-primary-400 mb-1">Expansion</p>
+                                        <p class="font-medium text-primary-700">6 Countries in SEA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="animate-on-scroll mt-12 opacity-0">
+                <div class="bg-primary-900 rounded-2xl p-8 md:p-10">
+                    <h4 class="font-display font-semibold text-white text-lg mb-6">Key Insights dari Studi Kasus</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white text-sm font-medium">1</div>
+                            <p class="text-primary-200 text-sm leading-relaxed">
+                                <strong class="text-white">Problem-Solution Fit</strong> — Semua unicorn Indonesia dimulai dengan menyelesaikan masalah nyata yang dihadapi masyarakat lokal.
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white text-sm font-medium">2</div>
+                            <p class="text-primary-200 text-sm leading-relaxed">
+                                <strong class="text-white">Ecosystem Approach</strong> — Kesuksesan berkelanjutan membutuhkan ekosistem layanan yang saling terintegrasi.
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white text-sm font-medium">3</div>
+                            <p class="text-primary-200 text-sm leading-relaxed">
+                                <strong class="text-white">Local Context</strong> — Pemahaman perilaku konsumen lokal (mobile-first, price-sensitive) menjadi kunci penetrasi pasar.
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white text-sm font-medium">4</div>
+                            <p class="text-primary-200 text-sm leading-relaxed">
+                                <strong class="text-white">Tech as Enabler</strong> — Teknologi adalah enabler, namun value proposition yang kuat tetap menjadi fundamental.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TANTANGAN ==================== -->
+    <section class="py-20 bg-primary-50/50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="animate-on-scroll font-display text-2xl md:text-3xl font-bold text-primary-900 mb-3 opacity-0">
+                    Tantangan dalam Implementasi E-Business
+                </h2>
+                <p class="animate-on-scroll text-primary-500 opacity-0">Faktor-faktor risiko yang perlu dimitigasi</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="animate-on-scroll opacity-0">
+                    <div class="h-full bg-white rounded-xl p-6 border border-primary-100 hover:border-red-200 transition-colors">
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-primary-800 mb-2">Cybersecurity</h3>
+                        <p class="text-sm text-primary-500 leading-relaxed">
+                            Ancaman keamanan seperti data breach, phishing, dan ransomware memerlukan investasi keamanan yang signifikan.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.1s;">
+                    <div class="h-full bg-white rounded-xl p-6 border border-primary-100 hover:border-red-200 transition-colors">
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-primary-800 mb-2">Digital Divide</h3>
+                        <p class="text-sm text-primary-500 leading-relaxed">
+                            Kesenjangan akses internet dan literasi digital antar wilayah masih menjadi hambatan penetrasi pasar.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.2s;">
+                    <div class="h-full bg-white rounded-xl p-6 border border-primary-100 hover:border-red-200 transition-colors">
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-primary-800 mb-2">Intense Competition</h3>
+                        <p class="text-sm text-primary-500 leading-relaxed">
+                            Barrier to entry yang rendah menyebabkan kompetisi ketat, memerlukan diferensiasi dan inovasi berkelanjutan.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll opacity-0" style="animation-delay: 0.3s;">
+                    <div class="h-full bg-white rounded-xl p-6 border border-primary-100 hover:border-red-200 transition-colors">
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-primary-800 mb-2">Regulatory Changes</h3>
+                        <p class="text-sm text-primary-500 leading-relaxed">
+                            Regulasi yang terus berkembang (UU PDP, pajak digital) memerlukan adaptasi compliance yang cepat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RINGKASAN ==================== -->
+    <section id="rangkuman" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Ringkasan</span>
+                <h2 class="animate-on-scroll font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4 opacity-0">
+                    Poin-Poin Kunci
+                </h2>
+            </div>
+
+            <div class="animate-on-scroll opacity-0">
+                <div class="bg-gradient-to-br from-primary-50 to-accent-50/30 rounded-3xl p-8 md:p-10 border border-primary-100">
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-lg flex items-center justify-center font-display font-semibold text-sm">1</span>
+                            <div>
+                                <p class="text-primary-700 leading-relaxed">
+                                    <strong class="text-primary-800">E-Business</strong> adalah pemanfaatan teknologi informasi dan komunikasi 
+                                    untuk menjalankan seluruh proses bisnis, mencakup lebih dari sekadar transaksi jual-beli (E-Commerce).
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-lg flex items-center justify-center font-display font-semibold text-sm">2</span>
+                            <div>
+                                <p class="text-primary-700 leading-relaxed">
+                                    Terdapat empat model utama berdasarkan pelaku transaksi: <strong class="text-primary-800">B2B</strong> (Business to Business), 
+                                    <strong class="text-primary-800">B2C</strong> (Business to Consumer), <strong class="text-primary-800">C2C</strong> (Consumer to Consumer), 
+                                    dan <strong class="text-primary-800">C2B</strong> (Consumer to Business).
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-lg flex items-center justify-center font-display font-semibold text-sm">3</span>
+                            <div>
+                                <p class="text-primary-700 leading-relaxed">
+                                    Pilar utama E-Business meliputi <strong class="text-primary-800">digital payment system</strong>, 
+                                    <strong class="text-primary-800">digital marketing</strong>, <strong class="text-primary-800">supply chain management</strong>, 
+                                    serta aspek <strong class="text-primary-800">keamanan dan kepatuhan regulasi</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-lg flex items-center justify-center font-display font-semibold text-sm">4</span>
+                            <div>
+                                <p class="text-primary-700 leading-relaxed">
+                                    Indonesia memiliki ekosistem E-Business yang berkembang pesat dengan kehadiran unicorn seperti 
+                                    <strong class="text-primary-800">Tokopedia, Gojek, Shopee, dan Traveloka</strong> yang masing-masing memiliki pendekatan strategis berbeda.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-lg flex items-center justify-center font-display font-semibold text-sm">5</span>
+                            <div>
+                                <p class="text-primary-700 leading-relaxed">
+                                    Tantangan utama meliputi <strong class="text-primary-800">cybersecurity</strong>, <strong class="text-primary-800">digital divide</strong>, 
+                                    <strong class="text-primary-800">persaingan intensif</strong>, dan <strong class="text-primary-800">dinamika regulasi</strong> yang memerlukan strategi mitigasi komprehensif.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-primary-200">
+                        <blockquote class="text-center">
+                            <p class="text-primary-600 italic">
+                                "Transformasi digital bukan sekadar adopsi teknologi, melainkan reimagining 
+                                bagaimana value diciptakan dan dideliverikan kepada stakeholder."
+                            </p>
+                            <cite class="block mt-3 text-sm text-primary-400 not-italic">— Konsep Dasar E-Business</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REFERENSI ==================== -->
+    <section id="referensi" class="py-20 bg-primary-50/50">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="animate-on-scroll inline-block text-xs font-semibold tracking-widest uppercase text-accent-600 mb-4 opacity-0">Sumber</span>
+                <h2 class="animate-on-scroll font-display text-2xl md:text-3xl font-bold text-primary-900 mb-4 opacity-0">
+                    Daftar Referensi
+                </h2>
+            </div>
+
+            <div class="animate-on-scroll opacity-0">
+                <div class="bg-white rounded-2xl border border-primary-100 divide-y divide-primary-100">
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[1]</span>&nbsp;&nbsp;
+                            Laudon, K. C., & Traver, C. G. (2021). <em class="text-primary-800">E-Commerce 2021: Business, Technology, and Society</em> (17th ed.). Pearson Education.
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[2]</span>&nbsp;&nbsp;
+                            Turban, E., Outland, J., King, D., Lee, J. K., Liang, T. P., & Turban, D. C. (2018). <em class="text-primary-800">Electronic Commerce 2018: A Managerial and Social Networks Perspective</em> (9th ed.). Springer.
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[3]</span>&nbsp;&nbsp;
+                            Chaffey, D. (2019). <em class="text-primary-800">Digital Business and E-Commerce Management</em> (7th ed.). Pearson Education Limited.
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[4]</span>&nbsp;&nbsp;
+                            Bank Indonesia. (2023). <em class="text-primary-800">Laporan Perekonomian Indonesia 2023: Transformasi Digital dan Ekonomi Berkelanjutan</em>. Jakarta: Bank Indonesia. Retrieved from <a href="https://www.bi.go.id" class="text-accent-600 hover:underline" target="_blank" rel="noopener">https://www.bi.go.id</a>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[5]</span>&nbsp;&nbsp;
+                            Google, Temasek, & Bain & Company. (2023). <em class="text-primary-800">e-Conomy SEA 2023: Reaching New Heights</em>. Retrieved from <a href="https://economysea.withgoogle.com" class="text-accent-600 hover:underline" target="_blank" rel="noopener">https://economysea.withgoogle.com</a>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-primary-700 leading-relaxed">
+                            <span class="text-primary-400">[6]</span>&nbsp;&nbsp;
+                            Kementerian Perdagangan RI. (2022). <em class="text-primary-800">Peta Jalan E-Commerce Indonesia 2020-2024</em>. Jakarta: Kementerian Perdagangan Republik Indonesia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-11 h-11 bg-primary-800 text-white rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-900 hover:shadow-xl transform hover:scale-105 z-40 flex items-center justify-center" aria-label="Kembali ke atas">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- ==================== PROGRESS BAR ==================== -->
+    <div id="progress-bar" class="fixed top-16 left-0 h-0.5 bg-gradient-to-r from-accent-500 to-blue-500 z-50 transition-all duration-150" style="width: 0%;"></div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-primary-900 text-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="font-display text-lg font-semibold mb-2">E-Business Learning Hub</h3>
+                    <p class="text-primary-300 text-sm">
+                        Website pembelajaran untuk Mata Kuliah E-Bisnis
+                    </p>
+                </div>
+                <div class="md:text-right">
+                    <p class="text-white font-medium">Ahmad Izzuddin Azzam</p>
+                    <p class="text-primary-400 text-sm">NIM: 2300492</p>
+                    <p class="text-primary-500 text-xs mt-2">Tahun Akademik 2025/2026</p>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-primary-800 text-center">
+                <p class="text-primary-500 text-xs">
+                    Dibuat untuk keperluan akademik. Referensi tercantum di atas.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

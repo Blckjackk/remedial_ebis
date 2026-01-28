@@ -1,0 +1,169 @@
+/* ==========================================
+   E-Business Learning Hub - Custom Styles
+   Modern, Professional, Clean Design
+   ========================================== */
+
+/* ===== Base Styles ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Offset untuk sticky navbar saat scroll ke anchor */
+section[id] {
+    scroll-margin-top: 70px;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: inherit;
+}
+
+/* ===== Animation Keyframes ===== */
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== Animation Classes ===== */
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.visible {
+    animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ===== Navbar Styles ===== */
+
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(226, 232, 240, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.nav-link {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #3b82f6;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #1e293b;
+}
+
+/* Mobile menu animation */
+#mobile-menu.open {
+    max-height: 350px;
+}
+
+/* ===== Back to Top Button ===== */
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== Progress Bar ===== */
+
+#progress-bar {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* ===== Responsive adjustments ===== */
+
+@media (max-width: 640px) {
+    .animate-on-scroll.visible {
+        animation-duration: 0.5s;
+    }
+}
+
+/* ===== Smooth scrollbar (webkit) ===== */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ===== Focus states for accessibility ===== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* ===== Print styles ===== */
+
+@media print {
+    #navbar,
+    #back-to-top,
+    #progress-bar {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 11pt;
+        color: black;
+        background: white;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
